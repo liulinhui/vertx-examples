@@ -46,38 +46,47 @@ public class VertxServiceIT {
   @Configuration
   public Option[] config() {
     return options(
-        mavenBundle("io.vertx", "vertx-core").versionAsInProject(),
 
-        mavenBundle("io.netty", "netty-common").versionAsInProject(),
-        mavenBundle("io.netty", "netty-buffer").versionAsInProject(),
-        mavenBundle("io.netty", "netty-transport").versionAsInProject(),
-        mavenBundle("io.netty", "netty-handler").versionAsInProject(),
-        mavenBundle("io.netty", "netty-codec").versionAsInProject(),
-        mavenBundle("io.netty", "netty-handler-proxy").versionAsInProject(),
-        mavenBundle("io.netty", "netty-codec-socks").versionAsInProject(),
-        mavenBundle("io.netty", "netty-codec-http").versionAsInProject(),
-        mavenBundle("io.netty", "netty-codec-http2").versionAsInProject(),
-        mavenBundle("io.netty", "netty-codec-dns").versionAsInProject(),
-        mavenBundle("io.netty", "netty-resolver").versionAsInProject(),
-        mavenBundle("io.netty", "netty-resolver-dns").versionAsInProject(),
+      systemPackages("sun.misc"),
 
-        mavenBundle("com.fasterxml.jackson.core", "jackson-core").versionAsInProject(),
-        mavenBundle("com.fasterxml.jackson.core", "jackson-databind").versionAsInProject(),
-        mavenBundle("com.fasterxml.jackson.core", "jackson-annotations").versionAsInProject(),
+      mavenBundle("io.vertx", "vertx-core").versionAsInProject(),
 
-        mavenBundle("io.vertx", "vertx-web").versionAsInProject(),
-        mavenBundle("io.vertx", "vertx-auth-common").versionAsInProject(),
-        mavenBundle("io.vertx", "vertx-jdbc-client").versionAsInProject(),
-        mavenBundle("io.vertx", "vertx-sql-common").versionAsInProject(),
-        mavenBundle("com.zaxxer", "HikariCP").versionAsInProject(),
-        mavenBundle("org.hsqldb", "hsqldb").versionAsInProject(),
+      mavenBundle("io.netty", "netty-common").versionAsInProject(),
+      mavenBundle("io.netty", "netty-buffer").versionAsInProject(),
+      mavenBundle("io.netty", "netty-transport").versionAsInProject(),
+      mavenBundle("io.netty", "netty-handler").versionAsInProject(),
+      mavenBundle("io.netty", "netty-codec").versionAsInProject(),
+      mavenBundle("io.netty", "netty-handler-proxy").versionAsInProject(),
+      mavenBundle("io.netty", "netty-codec-socks").versionAsInProject(),
+      mavenBundle("io.netty", "netty-codec-http").versionAsInProject(),
+      mavenBundle("io.netty", "netty-codec-http2").versionAsInProject(),
+      mavenBundle("io.netty", "netty-codec-dns").versionAsInProject(),
+      mavenBundle("io.netty", "netty-resolver").versionAsInProject(),
+      mavenBundle("io.netty", "netty-resolver-dns").versionAsInProject(),
 
-        mavenBundle("org.apache.felix", "org.apache.felix.ipojo").versionAsInProject(),
-        mavenBundle("commons-io", "commons-io").versionAsInProject(),
+      mavenBundle("com.fasterxml.jackson.core", "jackson-core").versionAsInProject(),
+      mavenBundle("com.fasterxml.jackson.core", "jackson-databind").versionAsInProject(),
+      mavenBundle("com.fasterxml.jackson.core", "jackson-annotations").versionAsInProject(),
 
-        bundle("file:target/osgi-examples-3.3.3.jar"),
+      mavenBundle("io.reactivex", "rxjava", "1.3.0"),
 
-        junitBundles()
+      mavenBundle("io.vertx", "vertx-web").versionAsInProject(),
+      mavenBundle("io.vertx", "vertx-web-client").versionAsInProject(),
+      mavenBundle("io.vertx", "vertx-web-common").versionAsInProject(),
+      mavenBundle("io.vertx", "vertx-rx-java").versionAsInProject(),
+
+      mavenBundle("io.vertx", "vertx-auth-common").versionAsInProject(),
+      mavenBundle("io.vertx", "vertx-jdbc-client").versionAsInProject(),
+      mavenBundle("io.vertx", "vertx-sql-common").versionAsInProject(),
+      mavenBundle("com.zaxxer", "HikariCP").versionAsInProject(),
+      mavenBundle("org.hsqldb", "hsqldb").versionAsInProject(),
+
+      mavenBundle("org.apache.felix", "org.apache.felix.ipojo").versionAsInProject(),
+      mavenBundle("commons-io", "commons-io").versionAsInProject(),
+
+      bundle("file:target/osgi-examples-" + System.getProperty("project.version", "3.4.2") + ".jar"),
+
+      junitBundles()
     );
   }
 
